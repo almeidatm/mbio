@@ -1,0 +1,23 @@
+{
+  "name": "mbio",
+  "version": "1.0.0",
+  "description": "Test exercise for MBIO",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/almeidatm/mbio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/almeidatm/mbio/issues"
+  },
+  "homepage": "https://github.com/almeidatm/mbio#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.31.2"
+  }
+}

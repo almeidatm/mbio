@@ -8,15 +8,19 @@ export default defineConfig({
     timeout: 5000
   },
   reporter: 'list',
+  use: {
+    baseURL: 'https://www.mercedes-benz.co.uk/',
+    screenshot: 'only-on-failure',
+  },
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-    {
-      name: 'Mobile Safari',
-      use: { ...devices['iPhone 12'] },
-    },
+    // {
+    //   name: 'Mobile Safari',
+    //   use: { ...devices['iPhone 12'] },
+    // },
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */

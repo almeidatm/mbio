@@ -1,32 +1,12 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
-import fs from 'fs/promises';
-
-async function writeToFile(minPrice: number, maxPrice: number) {
-  const formatter = new Intl.NumberFormat('en-UK', {
-    style: 'currency',
-    currency: 'GBP',
-  })
-  const min = formatter.format(minPrice);
-  const max = formatter.format(maxPrice);
-
-  try {
-    const content = `Min price is ${min} \nMax price is ${max}`;
-    await fs.writeFile('prices.txt', content);
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-const EXPECTED_MIN_PRICE = 15000;
-const EXPECTED_MAX_PRICE = 60000;
+import { EXPECTED_MAX_PRICE, EXPECTED_MIN_PRICE, writeToFile } from '../support/helpers';
 
 test('Validate A Class models price are between £15,000 and £60,000', async ({ page }) => {
   await page.goto('');
   await page.getByRole('button', { name: 'Agree to all' }).click();
 
   await page.getByRole('menuitem', { name: 'Our models' }).click();
-  // await page.locator('.owc-header-navigation-topic__model-flyout').click();
   await page.getByRole('menuitem', { name: 'Hatchbacks' }).click();
   await page.getByRole('menuitem', { name: ' A-Class Hatchback ' }).hover();
   const color = await page.getByRole('menuitem', { name: ' A-Class Hatchback ' }).locator('a').evaluate((e) => {
@@ -55,6 +35,5 @@ test('Validate A Class models price are between £15,000 and £60,000', async ({
   expect(minPrice).toBeGreaterThan(EXPECTED_MIN_PRICE);
   expect(maxPrice).toBeLessThan(EXPECTED_MAX_PRICE);
   writeToFile(minPrice, maxPrice);
-
 });
 

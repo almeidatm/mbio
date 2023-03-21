@@ -11,4 +11,7 @@ export class BasePage {
   async goto() {
     await this.page.goto(this.url);
   }
+  async checkPageOpened() {
+    await this.page.waitForURL(this.url);
+  }
 }

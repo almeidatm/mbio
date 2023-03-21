@@ -12,4 +12,13 @@ export class HatchbackPage extends BasePage {
   async goto() {
     await super.goto();
   }
+  async blob() {
+    await this.page.waitForURL(
+      "/passengercars/models/hatchback/a-class/overview.html"
+    );
+    await this.page
+      .locator(".owc-stage-cta-buttons__button")
+      .getByText(" Build your car ")
+      .click();
+  }
 }

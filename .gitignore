@@ -105,3 +105,8 @@ dist
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+# App
+
+screenshot.png
+prices.txt

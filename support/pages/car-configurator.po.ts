@@ -4,7 +4,6 @@ import { EXPECTED_MAX_PRICE, EXPECTED_MIN_PRICE, writeToFile } from '../helpers'
 import { BasePage } from './base-page.po';
 
 export class CarConfiguratorPage extends BasePage {
-  readonly url: string;
 
   constructor(page: Page) {
     super(
@@ -13,9 +12,6 @@ export class CarConfiguratorPage extends BasePage {
     );
   }
 
-  async goto() {
-    await super.goto();
-  }
   async blob() {
     await this.page.waitForURL(
       "passengercars/mercedes-benz-cars/car-configurator.html/motorization/CCci/GB/en/bm/1770122,1770512,1770542,1770842,1770872"

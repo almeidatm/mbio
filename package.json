@@ -4,7 +4,10 @@
   "description": "Test exercise for MBIO",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test"
+    "test": "playwright test",
+    "test:chromium": "playwright test --project chromium",
+    "test:edge": "playwright test --project edge",
+    "test:safari": "playwright test --project safari"
   },
   "repository": {
     "type": "git",

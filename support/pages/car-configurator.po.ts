@@ -32,9 +32,9 @@ export class CarConfiguratorPage extends BasePage {
     await this.fuelTypeFilter.click();
   }
   async takeScreenshot(fullPage: boolean = false) {
-    if (fullPage)
-      await this.page.screenshot({ path: "screenshot.png", fullPage: true });
-    else await this.resultsList.screenshot({ path: "screenshot.png" });
+    fullPage
+      ? this.page.screenshot({ path: "screenshot.png", fullPage: true })
+      : await this.resultsList.screenshot({ path: "screenshot.png" });
   }
   async getPricesList() {
     const texts = await this.carPrice.allInnerTexts();

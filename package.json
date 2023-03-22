@@ -4,6 +4,7 @@
   "description": "Test exercise for MBIO",
   "main": "index.js",
   "scripts": {
+    "setup": "playwright install",
     "test": "playwright test",
     "test:chromium": "playwright test --project chromium",
     "test:edge": "playwright test --project edge",

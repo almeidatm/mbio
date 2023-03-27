@@ -1,7 +1,11 @@
-import { expect, Locator, Page } from '@playwright/test';
+import { expect, Locator, Page } from "@playwright/test";
 
-import { EXPECTED_MAX_PRICE, EXPECTED_MIN_PRICE, writeToFile } from '../helpers';
-import { BasePage } from './base-page.po';
+import {
+  EXPECTED_MAX_PRICE,
+  EXPECTED_MIN_PRICE,
+  writeToFile,
+} from "../helpers";
+import { BasePage } from "./base-page.po";
 
 export class CarConfiguratorPage extends BasePage {
   readonly fuelTypeFilter: Locator;
@@ -16,10 +20,8 @@ export class CarConfiguratorPage extends BasePage {
       "passengercars/mercedes-benz-cars/car-configurator.html/motorization/CCci/GB/en/bm/1770122,1770512,1770542,1770842,1770872"
     );
     this.fuelTypeFilter = this.page.getByText("Fuel type");
-    this.dieselCheckbox = this.page.getByLabel(" Diesel ");
-    this.selectedOptionsCounter = this.page.locator(
-      ".wb-multi-select-control__counter"
-    );
+    this.dieselCheckbox = this.page.getByRole("checkbox", { name: "Diesel" });
+    this.selectedOptionsCounter = this.page.locator("ccwb-counter");
     this.resultsList = this.page.locator("cc-motorization");
     this.carPrice = this.page.locator(
       ".cc-motorization-header__price--with-environmental-hint"
